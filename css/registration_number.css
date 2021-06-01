@@ -1,7 +1,7 @@
 body{
     background-color: rgb(255, 63, 95);
+    text-align: center;
 }
-
 
 .container{
     height:500px;
@@ -9,7 +9,7 @@ body{
     width: 100%;
     margin: auto;
     background: rgb(250, 134, 153);
-    border-radius: 5px;
+    border-radius: 30px;
 }
 
 .container{
@@ -19,10 +19,25 @@ body{
     0px 10px 10px rgba(255, 255, 255),
     0px 2.5px 5px  rgba(255, 255, 255),
 
-    0px 30px 15px rgba(255, 255, 255),
+    0px 20px 10px rgba(255, 255, 255),
 
     10px 20px 20px rgba(255, 255, 255),
 
     -10px 20px 20px rgba(255, 255, 255);
 
+}
+h1{
+    margin-bottom: 3.5px;
+}
+.text-input{
+    margin-top: 5.5px;
+    margin-bottom: 5.5px;
+}
+.locations{
+    margin-top: 5.5px;
+    margin-bottom: 15px;
+}
+.buttons{
+    margin-bottom: -5.5px;
+    margin-top: 10.5px;
 }
