@@ -7,38 +7,29 @@ var regOutput = document.querySelector('.regNo-output')
 var regNoArray = [];
 
 if (localStorage['regNumbers']) {
-    regNoArray = JSON.parse(localStorage.getItem('regNumbers'))
-  
-  }
+  regNoArray = JSON.parse(localStorage.getItem('regNumbers'))
+
+}
 var regInstance = RegNo(regNoArray);
 
 
-addBtnElem.addEventListener('click', function(){
-// var theRegNo = document.querySelector('input[name="location"]:checked')
+addBtnElem.addEventListener('click', function () {
+  var theReg = regInstance.setRegNo(regInputElem.value);
+  for (let i = 0; i < theReg; i++){
 
-var theReg = regInstance.regNoSelected(regInputElem.value);
-for(let i = 0; i < theReg.length; i++){
-    regOutput.innerHTML = regInstance.regNoSelected(theReg, regInputElem.value)
-    localStorage.setItem('regNumbers', JSON.stringify(regInstance.getRegList()))
-    
-}
-
+  }
+  regOutput.innerHTML = regInstance.regNoSelected(theReg, regInputElem.value)
+  localStorage.setItem('regNumbers', JSON.stringify(regInstance.getRegList()))
+  regOutput.innerHTML = regInstance.getRegList()
 })
 
-showBtnElem.addEventListener('click', function() {
-    regOutput.innerHTML = regInstance.getRegList()
+showBtnElem.addEventListener('click', function () {
+  var theRegNo = document.querySelector('input[name="location"]:checked')
+  regOutput.innerHTML = regInstance.getRegList(theRegNo)
+ 
 })
 
 clearBtnElem.addEventListener('click', function () {
-    localStorage.clear();
-    location.reload()
-  })
-
-//   addBtnElem.addEventListener('click', function(){
-//     localStorage.setItem('regNumbers', JSON.stringify(regInstance.regNoSelected(regInputElem.value)))
-// // var theRegNo = document.querySelector('input[name="location"]:checked')
-
-// var theReg = regInstance.regNoSelected(regInputElem.value);
-// for(let i = 0; i < theReg.length; i++){
-//     regOutput.innerHTML += '<li>'+theReg[i]+'</li>';
-// }
+  localStorage.clear();
+  location.reload()
+})

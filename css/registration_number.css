@@ -1,6 +1,6 @@
 body{
-    background-color: rgb(255, 63, 95);
     text-align: center;
+    background: linear-gradient(-200deg, #746f6b 30%, rgba(0, 0, 0, 0) 100%); 
 }
 
 .container{
@@ -8,7 +8,7 @@ body{
     max-width: 600px;
     width: 100%;
     margin: auto;
-    background: rgb(250, 134, 153);
+    background: rgb(209, 0, 35);
     border-radius: 30px;
 }
 
@@ -16,14 +16,14 @@ body{
     filter: blur(0.6px);
     box-shadow: 
 
-    0px 10px 10px rgba(255, 255, 255),
+    0px 10px 10px rgb(21, 20, 20),
     0px 2.5px 5px  rgba(255, 255, 255),
 
-    0px 20px 10px rgba(255, 255, 255),
+    10px 20px 10px rgb(21, 20, 20),
 
-    10px 20px 20px rgba(255, 255, 255),
+    -10px 20px 30px rgba(255, 255, 255),
 
-    -10px 20px 20px rgba(255, 255, 255);
+    20px 20px 20px rgba(255, 255, 255);
 }
 
 h1{
@@ -42,5 +42,45 @@ h1{
     margin-top: 10.5px;
 }
 .regNo-output{
-    border: 1.5px;
+    margin-top: 15px;
+    color: #090b0c;
+    border: 5px outset rgb(8, 7, 7);
+    background-color: rgb(255, 217, 3);
+   
+}
+.Add{
+    background-color: rgb(144, 225, 243);
+    color: black;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 2px 1px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.Clear{
+    background-color: rgb(144, 225, 243);
+    color: black;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 2px 1px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.Show-All{
+    background-color: rgb(144, 225, 243);
+    color: black;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 2px 1px;
+    cursor: pointer;
+    border-radius: 6px;
 }
