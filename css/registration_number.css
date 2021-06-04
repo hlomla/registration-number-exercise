@@ -24,8 +24,8 @@ body{
     10px 20px 20px rgba(255, 255, 255),
 
     -10px 20px 20px rgba(255, 255, 255);
-
 }
+
 h1{
     margin-bottom: 3.5px;
 }
@@ -40,4 +40,7 @@ h1{
 .buttons{
     margin-bottom: -5.5px;
     margin-top: 10.5px;
+}
+.regNo-output{
+    border: 1.5px;
 }
