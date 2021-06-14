@@ -8,43 +8,68 @@ var regOutput = document.querySelector('.regNo-output')
 var regNoArray = [];
 
 if (localStorage['regNumbers']) {
-  regNoArray = JSON.parse(localStorage.getItem('regNumbers').split(','))
+  regNoArray = JSON.parse(localStorage.getItem('regNumbers'))
 
 }
 var regInstance = RegNo(regNoArray);
 
 
 addBtnElem.addEventListener('click', function () {
-  var theReg = regInstance.setRegNo(regInputElem.value);
-  for (let i = 0; i < theReg; i++){
-    if (theReg.startsWith('CA') || theReg.startsWith('CY') || theReg.startsWith('CL')) {
-  }
-  return theReg
-}
-  regOutput.innerHTML = regInstance.regNoSelected(theReg, regInputElem.value)
-  localStorage.setItem('regNumbers', JSON.stringify(regInstance.getRegList()))
-  regOutput.innerHTML = regInstance.getRegList()
-})
+ // var regInputElem = document.querySelector('.text-input').value
+ regOutput.innerText = "";
+  var theReg = regInstance.regNoSelected(regInputElem.value);
 
-showBtnElem.addEventListener('click', function(){
+  for(let i = 0; i < theReg.length; i++){
+    var list = document.createElement('button')
+    list.classList.add("btn")
+    list.innerHTML = theReg[i];
+    regOutput.appendChild(list)
+  }
+  localStorage.setItem('regNumbers', JSON.stringify(regNoArray))
+  //regOutput.innerHTML = regInstance.getRegList()
+});
+
+function filter(){
+  var storedRegNo = JSON.parse(localStorage.getItem('regNumbers'))
   var specificTownReg = document.querySelector('input[name="location"]:checked')
-
-  let 
-  var selectedReg = regInstance.regNoSelected()
-  for (let i = 0; i < selectedReg; i++){
-    if (selectedReg.startsWith('CA') || selectedReg.startsWith('CY') || selectedReg.startsWith('CL')) {
-  }
-  return selectedReg
-}
-regOutput.innerHTML = regInstance.getRegList(specificTownReg)
-})
+  // var singleReg = regInstance.getRegList(addBtnElem.value)
+  
+  // var checkedTown = regInstance.setRegNo(townRegNumbers)
+  // storedRegNo = storedRegNo
+ if(specificTownReg){
+  var townRegNumbers = specificTownReg.value;
+   for(let i = 0; i < storedRegNo.length; i++){
+     if(storedRegNo[i].startsWith(townRegNumbers)){
+     //  console.log(storedRegNo[i])
+       var list = document.createElement('button')
+      list.classList.add("btn2")
+      list.innerText = storedRegNo[i];
+     
+      regOutput.appendChild(list) 
+     }
+     
+   }
+ }
+};
 
 showAllBtnElem.addEventListener('click', function () {
-  regOutput.innerHTML = regInstance.getRegList()
+  //regOutput.innerHTML = regInstance.getRegList()
+  var storedRegNo = JSON.parse(localStorage.getItem('regNumbers'))
+  
+  for(let i = 0; i < storedRegNo.length; i++){
+    //  console.log(storedRegNo[i])
+      var list = document.createElement('button')
+     list.classList.add("btn3")
+     list.innerText = storedRegNo[i];
+    
+     regOutput.appendChild(list)    
+  }
  
-})
+});
 
 clearBtnElem.addEventListener('click', function () {
   localStorage.clear();
   location.reload()
-})
+});
+
+showBtnElem.addEventListener('click', filter);
