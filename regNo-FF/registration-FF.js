@@ -4,15 +4,16 @@ function RegNo(regArray) {
 
     function regNoSelected(registrations) {
         var regTowns = registrations.trim().toUpperCase()
-        //Regex Formats for towns
+
         var regex = /^C(A|Y|W)\s[0-9]{6}$/
         if (regex.test(regTowns)) {
             if (!regList.includes(regTowns))
                 regList.push(regTowns)
             console.log(regList);
             return regList
+        } else {
+            return 'Invalid Entry!'
         }
-
     }
 
     function setRegNo(reg) {
@@ -28,17 +29,29 @@ function RegNo(regArray) {
     function getRegList() {
         return regList
     }
-    function regError() {
-        if(regList.length === 0-5 && regList === " "){
+    function regError(reg) {
+        if (reg === "") {
             return "Please enter a registration number!"
         }
-        if(regList)
+        else if (regList.includes(reg)) {
+            return "Registration already added!"
+        }
+
+    }
+    function successMessage() {
+            return "Registration number added successfully!"
+        
+    }
+    function regErrTime() {
+        return " "
     }
 
     return {
         regNoSelected,
         setRegNo,
         getRegList,
-        regError
+        regError,
+        regErrTime,
+        successMessage
     }
 }

@@ -48,6 +48,10 @@ h1{
     text-transform: capitalize;
    
 }
+.regErrs{
+    color: rgba(255, 255, 255, 0.981);
+    font-weight: bolder;
+}
 .btn{
     margin: 5px;
     border: 2px solid black;
