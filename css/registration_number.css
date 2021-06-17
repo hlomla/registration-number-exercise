@@ -85,6 +85,16 @@ h1{
     text-transform: capitalize;
     border-radius: 12px;
 }
+.btn4{
+    margin: 5px;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #090b0c;
+    background-color: rgb(255, 217, 3);
+    text-transform: capitalize;
+    border-radius: 12px;
+}
 .Add{
     background-color: rgb(144, 225, 243);
     color: black;

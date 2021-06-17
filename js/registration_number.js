@@ -12,15 +12,23 @@ if (localStorage['regNumbers']) {
   regNoArray = JSON.parse(localStorage.getItem('regNumbers'))
 
 }
+
 var regInstance = RegNo(regNoArray);
 
+if (regInstance.setRegNo()) {
+  regOutput.innerHTML = regInstance.setRegNo()
+  // var storedRegNo = JSON.parse(localStorage.getItem('regNumbers'))
+  // var list = document.createElement('button')
+  // list.className = "btn4"
+  // list.innerText = storedRegNo;
+}
 
 addBtnElem.addEventListener('click', function () {
   setTimeout(function () { regErrorElem.innerHTML = regInstance.regErrTime() }, 3000);
 
 
   regOutput.innerText = "";
-  // alert(regInstance.regError(regInputElem.value))
+  
   if (regInputElem.value === '') {
 
     const regErrMessage = regInstance.regError(regInputElem.value);
@@ -32,7 +40,7 @@ addBtnElem.addEventListener('click', function () {
   var theReg = regInstance.regNoSelected(regInputElem.value);
 
   if (theReg !== "") {
-    if(theReg === 'Invalid Entry!'){
+    if (theReg === 'Invalid Entry!') {
       regErrorElem.innerHTML = theReg;
       return;
     }
@@ -43,7 +51,7 @@ addBtnElem.addEventListener('click', function () {
       list.innerHTML = theReg[i];
       regOutput.appendChild(list)
     }
-  } 
+  }
   localStorage.setItem('regNumbers', JSON.stringify(regNoArray))
 });
 
