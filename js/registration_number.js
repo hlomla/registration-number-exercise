@@ -15,13 +15,20 @@ if (localStorage['regNumbers']) {
 
 var regInstance = RegNo(regNoArray);
 
-if (regInstance.setRegNo()) {
-  regOutput.innerHTML = regInstance.setRegNo()
-  // var storedRegNo = JSON.parse(localStorage.getItem('regNumbers'))
-  // var list = document.createElement('button')
-  // list.className = "btn4"
-  // list.innerText = storedRegNo;
-}
+document.body.onload = (()=> {
+ 
+  var storedRegNo = JSON.parse(localStorage.getItem('regNumbers'))
+
+  for (let i = 0; i < storedRegNo.length; i++) {
+    var list = document.createElement('button')
+    list.classList.add("btn4")
+    list.innerText = storedRegNo[i];
+
+    regOutput.appendChild(list)
+  }
+}) 
+
+
 
 addBtnElem.addEventListener('click', function () {
   setTimeout(function () { regErrorElem.innerHTML = regInstance.regErrTime() }, 3000);

@@ -62,7 +62,7 @@ describe('Registration Number Function', function () {
         it('should be able to return registration numbers from Parow', function () {
             let registrationNo = RegNo();
 
-            registrationNo.regNoSelected()
+            registrationNo.regNoSelected();
 
             registrationNo.setRegNo('ca 236 555')
             registrationNo.setRegNo('ca 120 230')
@@ -73,7 +73,7 @@ describe('Registration Number Function', function () {
 
 
             registrationNo.getRegList(['CY 222420'])
-            assert.deepEqual((['CY 222420'], registrationNo.regNoSelected(['CY 222420'])));
+            assert.deepEqual(['CY 222420'], registrationNo.regNoSelected('CY 222420'));
 
         })
 
@@ -115,37 +115,35 @@ describe('Registration Number Function', function () {
     describe('Return errors', function () {
         it('should be able an error when input is a empty string', function () {
             let registrationNo = RegNo();
-            registrationNo.regError("")
 
-
-            assert.equal("Please enter a registration number!",   registrationNo.regError(""))
+            assert.equal("Please enter a registration number!", registrationNo.regError(""))
         });
         it('should be able to return an error if a registration is repeated', function () {
             let registrationNo = RegNo();
 
-            registrationNo.regError(" ")
-           
-            registrationNo.setRegNo("CY 420420")
-            registrationNo.setRegNo("CY 420420")
+            registrationNo.regNoSelected("CY 420420")
 
-            assert.equal("Registration already added!",   registrationNo.regError(["CY 420420","CY 420420"]))
+            assert.equal("Registration already added!", registrationNo.regError("CY 420420"));
         });
         it("should be able to return an error if it's not a registration number", function () {
             let registrationNo = RegNo();
 
-            registrationNo.regError(" ")
-
-            registrationNo.setRegNo("Hlomla#")
-
-            assert.equal("Invalid Entry!",   registrationNo.regError(" "))
+            assert.equal("Invalid Entry!", registrationNo.regError("Hlomla#"))
         });
         it("should be able to return an error if it's not a registration number from the list", function () {
             let registrationNo = RegNo();
 
-            registrationNo.regError("CL 452452")
+            registrationNo.regNoSelected("CL 452452")
 
 
-            assert.equal("Invalid Entry!",   registrationNo.regError("CL 452452"))
+            assert.equal("Invalid Entry!", registrationNo.regError("CL 452452"))
+        });
+    });
+    describe('Return success messages', function () {
+        it('should be able to return a successful message when correct registration number is entered', function () {
+            let registrationNo = RegNo();
+
+            assert.equal("Registration number added successfully!", registrationNo.successMessage(""))
         });
     });
 });

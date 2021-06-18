@@ -1,6 +1,7 @@
 function RegNo(regArray) {
     var regList = regArray || [];
     var filteredReg = []
+    var regex = /^C(A|Y|W)\s[0-9]{6}$/
 
     function regNoSelected(registrations) {
         var regTowns = registrations
@@ -33,10 +34,9 @@ function RegNo(regArray) {
         }
         else if (regList.includes(reg)) {
             return "Registration already added!"
-        }
-        else if(reg !== '') {
-            if(reg === 'Invalid Entry!')
-            return;
+        }  
+        else if(!/^C(A|Y|W)\s[0-9]{6}$/.test(reg)) {
+            return 'Invalid Entry!'
     }
 }
     function successMessage() {
